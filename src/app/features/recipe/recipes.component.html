@@ -1,0 +1,28 @@
+<div class="p-grid p-justify-center">
+	<img class="p-col-6 p-lg-4" src="assets/logo.png" alt="">
+</div>
+<div class="p-grid p-justify-center">
+	<div class="p-col-8" *ngIf="!(isRecipesFetching | async); else spinner">
+		<p-panel
+			[showHeader]="(recipes | async).length"
+			
+		>
+			<ng-container *ngIf="(recipes | async).length; else emptyList">
+				<p-header>
+
+				</p-header>
+				<app-recipe-list
+					[recipes]="recipes | async"
+				></app-recipe-list>
+			</ng-container>
+			<ng-template #emptyList>
+				<app-empty-recipe-list></app-empty-recipe-list>
+			</ng-template>
+		</p-panel>
+	</div>
+	<ng-template #spinner>
+		<div class="p-col-1 p-grid p-justify-center">
+			<i class=" pi pi-spin pi-spinner" style="font-size: 3em"></i>
+		</div>
+	</ng-template>
+</div>

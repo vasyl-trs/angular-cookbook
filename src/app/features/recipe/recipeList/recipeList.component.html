@@ -1,0 +1,27 @@
+<p-card *ngFor="let recipe of recipes" [header]="recipe.title">
+	<p-header>
+		<img class="recipe-img" src="assets/dish.png" alt="">
+	</p-header>
+	{{ recipe.description }}
+	<p-footer>
+		<div class="p-grid p-justify-center">
+			<div class="p-col-4 p-grid p-justify-between">
+				<button
+					pButton
+					icon="pi pi-eye"
+					class="ui-button-rounded ui-button-success"
+				></button>
+				<button
+					pButton
+					icon="pi pi-pencil"
+					class="ui-button-rounded ui-button-success"
+				></button>
+				<button
+					pButton
+					icon="pi pi-trash"
+					class="ui-button-rounded ui-button-danger"
+				></button>
+			</div>
+		</div>
+	</p-footer>
+</p-card>
